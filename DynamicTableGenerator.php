@@ -4,9 +4,9 @@
 
 class DynamicTableGenerator {
 
-    public function generateTable($numberOfRow, $argumentArray) {
+    public function generateTable($numberOfRow, $argumentArray,$template) {
         $tableString = '';
-        $tableString .='<table border="1">';
+        $tableString .='<table class="'.$template.'">';
         $tableString .='<thead>';
         $tableString .='<tr>';
         foreach ($argumentArray as $value) {
@@ -36,5 +36,5 @@ class DynamicTableGenerator {
 
 }
 
-$obj = new DynamicTableGenerator();
-echo $obj->generateTable(10, array('Name', 'Age', 'Date Of Birth'));
+//$obj = new DynamicTableGenerator();
+//echo $obj->generateTable(10, array('Name', 'Age', 'Date Of Birth'));
