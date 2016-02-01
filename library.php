@@ -1,1 +1,5 @@
-<?php echo 'first plugin'; ?>
+<?php
+
+class DynamicTableGenerator {
+    
+}
