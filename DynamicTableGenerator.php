@@ -1,31 +1,48 @@
-
-
 <?php
 
-class DynamicTableGenerator {
+/*
+ * Dynamic Table Generator with Bootstrap.
+ * Creator - Zannatul Haque Siam
+ * Software Engineer @ TheMessenger
+ */
 
-    public function generateTable($numberOfRow, $argumentArray,$template) {
+class DynamicTableGenerator {
+    /*
+     *  Method Name generateTable;
+     * Number of argument: 2
+     * First argument = Result Data which want to show in table
+     * Second argument = Column names for thead and tfoot
+     */
+
+    public function generateTable($dataArray, $columnNames) {
+
+        // Check dataArray's total column number and columnName's total number.
+
+        if (count($dataArray) != count($columnNames)) {
+            echo 'Column Numbers Are Not Same';
+            exit;
+        }
         $tableString = '';
-        $tableString .='<table class="'.$template.'">';
+        $tableString .='<table class="table table-hover table-bordered">';
         $tableString .='<thead>';
         $tableString .='<tr>';
-        foreach ($argumentArray as $value) {
+        foreach ($columnNames as $value) {
             $tableString .='<td>' . $value . '</td>';
         }
         $tableString .='</tr>';
         $tableString .='<thead>';
         $tableString .='<tbody>';
-        for ($i = 0; $i < $numberOfRow; $i++) {
+        for ($i = 0; $i < count($dataArray); $i++) {
             $tableString .='<tr>';
-            $tableString .='<td>Sim</td>';
-            $tableString .='<td>Sim</td>';
-            $tableString .='<td>Sim</td>';
+            foreach ($dataArray as $value) {
+                $tableString .='<td>' . $value . '</td>';
+            }
             $tableString .='</tr>';
         }
         $tableString .='</tbody>';
         $tableString .='<tfoot>';
         $tableString .='<tr>';
-        foreach ($argumentArray as $value) {
+        foreach ($columnNames as $value) {
             $tableString .='<td>' . $value . '</td>';
         }
         $tableString .='</tr>';
@@ -35,6 +52,3 @@ class DynamicTableGenerator {
     }
 
 }
-
-//$obj = new DynamicTableGenerator();
-//echo $obj->generateTable(10, array('Name', 'Age', 'Date Of Birth'));
