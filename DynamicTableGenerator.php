@@ -4,6 +4,7 @@
  * Dynamic Table Generator with Bootstrap.
  * Creator - Zannatul Haque Siam
  * Software Engineer @ TheMessenger
+ * Email: ferdoussiam@gmail.com
  */
 
 class DynamicTableGenerator {
